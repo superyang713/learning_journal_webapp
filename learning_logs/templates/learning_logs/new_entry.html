@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "learning_logs/base.html" %}
 
 {% block content %}
 
-    <p><a href="{% url 'topic' topic.id %}">{{ topic.text }}</a></p>
+    <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic.text }}</a></p>
 
     <p>add a new entry:</p>
     <form action="" method="post">
