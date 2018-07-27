@@ -26,7 +26,9 @@ SECRET_KEY = '2otb9jlu3=9#i1$u#%8u6a6#k+%h9ny*y-%hi#z&pf)8nhb8j0'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '167.99.124.157',
+    '159.203.126.223',
+    'yangdai.info',
+    'www.yangdai.info',
 ]
 
 
@@ -84,12 +86,12 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 
 DATABASES = {
     'default': {
-	'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'app_db',
-        'USER': 'superyang713',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'learning_log',
+        'USER': 'django',
         'PASSWORD': 'gofpdseorkg713',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 
@@ -131,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # My settings
 LOGIN_URL = '/users/login/'
