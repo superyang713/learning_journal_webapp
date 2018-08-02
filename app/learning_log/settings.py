@@ -26,8 +26,10 @@ SECRET_KEY = '2otb9jlu3=9#i1$u#%8u6a6#k+%h9ny*y-%hi#z&pf)8nhb8j0'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '159.203.126.223',  # TODO: should somehow make this dynamic
     'learning_log',
-    '18.74.5.146',
+    'yangdai.info',
+    'www.yangdai.info'
 ]
 
 

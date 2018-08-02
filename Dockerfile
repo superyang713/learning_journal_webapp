@@ -15,4 +15,3 @@ RUN cd app && python manage.py collectstatic
 
 # expose the port 8000
 EXPOSE 8000
-CMD ["gunicorn", "--chdir", "app", "--bind", ":8000", "learning_log.wsgi:application"]

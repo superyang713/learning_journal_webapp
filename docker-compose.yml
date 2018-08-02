@@ -10,6 +10,10 @@ services:
         networks:
             - nginx_network
             - database1_network
+        command: bash -c "
+            python app/manage.py makemigrations
+            && python app/manage.py migrate
+            && gunicorn --chdir app --bind 0.0.0.0:8000 learning_log.wsgi"
         depends_on:  # <-- wait for database to be 'ready' before starting this
             - database1
 
