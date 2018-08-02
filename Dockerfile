@@ -1,7 +1,6 @@
 # start from an official image
 FROM python:3.6
 
-# arbitrary location choice
 RUN mkdir -p /opt/services/django_app/src
 WORKDIR /opt/services/django_app/src
 
