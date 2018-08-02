@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+    learning_log:
+        build: .
+        volumes:
+            - .:/opt/services/django_app/src
+            - static_volume:/opt/services/django_app/src/app/static
+            - media_volume:/opt/services/django_app/src/app/media
+        networks:
+            - nginx_network
+            - database1_network
+        depends_on:  # <-- wait for database to be 'ready' before starting this
+            - database1
+
+    nginx:
+        image: nginx:1.13
+        ports:
+            - 8000:80
+        volumes:
+            - ./config/nginx/conf.d:/etc/nginx/conf.d
+            - static_volume:/opt/services/django_app/src/app/static
+            - media_volume:/opt/services/django_app/src/app/media
+        depends_on:  # <-- wait for learning_log to be 'ready' before starting this
+            - learning_log
+        networks:  #<-- connect to the bridge
+            - nginx_network
+
+    database1:  # <-- IMPORTANT: same name as in DATABASE settings in django app
+        image: postgres:10
+        env_file:
+            - config/db/database1_env
+        networks:  #<-- connect to the bridge
+            - database1_network
+        volumes:
+            - database1_volume:/var/lib/postgresql/data
+
+networks:
+    nginx_network:
+        driver: bridge
+    database1_network:
+        driver: bridge
+
+volumes:
+    database1_volume:
+    static_volume:
+    media_volume:

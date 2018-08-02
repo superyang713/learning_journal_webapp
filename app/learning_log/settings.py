@@ -26,9 +26,8 @@ SECRET_KEY = '2otb9jlu3=9#i1$u#%8u6a6#k+%h9ny*y-%hi#z&pf)8nhb8j0'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '159.203.126.223',
-    'yangdai.info',
-    'www.yangdai.info',
+    'learning_log',
+    '18.74.5.146',
 ]
 
 
@@ -87,11 +86,11 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'learning_log',
-        'USER': 'django',
-        'PASSWORD': 'gofpdseorkg713',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'database1',
+        'USER': 'yang',
+        'PASSWORD': 'password',
+        'HOST': 'database1',
+        'PORT': '5432',
     }
 }
 
@@ -134,6 +133,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # My settings
 LOGIN_URL = '/users/login/'
